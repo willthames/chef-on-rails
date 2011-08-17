@@ -1,0 +1,31 @@
+<h1>Listing chef_configs</h1>
+
+<table>
+  <tr>
+    <th>Host</th>
+    <th>Port</th>
+    <th>Scheme</th>
+    <th>Client name</th>
+    <th>Key file</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @chef_configs.each do |chef_config| %>
+  <tr>
+    <td><%= chef_config.host %></td>
+    <td><%= chef_config.port %></td>
+    <td><%= chef_config.scheme %></td>
+    <td><%= chef_config.client_name %></td>
+    <td><%= chef_config.key_file %></td>
+    <td><%= link_to 'Show', chef_config %></td>
+    <td><%= link_to 'Edit', edit_chef_config_path(chef_config) %></td>
+    <td><%= link_to 'Destroy', chef_config, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Chef config', new_chef_config_path %>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  host: MyString
+  port: 1
+  scheme: MyString
+  client_name: MyString
+  key_file: MyString
+
+two:
+  host: MyString
+  port: 1
+  scheme: MyString
+  client_name: MyString
+  key_file: MyString

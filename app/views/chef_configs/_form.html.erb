@@ -1,0 +1,37 @@
+<%= form_for(@chef_config) do |f| %>
+  <% if @chef_config.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@chef_config.errors.count, "error") %> prohibited this chef_config from being saved:</h2>
+
+      <ul>
+      <% @chef_config.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :host %><br />
+    <%= f.text_field :host %>
+  </div>
+  <div class="field">
+    <%= f.label :port %><br />
+    <%= f.text_field :port %>
+  </div>
+  <div class="field">
+    <%= f.label :scheme %><br />
+    <%= f.text_field :scheme %>
+  </div>
+  <div class="field">
+    <%= f.label :client_name %><br />
+    <%= f.text_field :client_name %>
+  </div>
+  <div class="field">
+    <%= f.label :key_file %><br />
+    <%= f.text_field :key_file %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
