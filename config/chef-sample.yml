@@ -1,0 +1,3 @@
+uri: https://chef.example.com:8443/
+client_name: admin
+keyfile: /etc/chef/key.pem

@@ -2,14 +2,19 @@ class ChefAPI
 
   def initialize
     if !Spice.connection
-      Spice.setup do |s|
-        s.host = "chef.example.com"
-        s.port = "5000"
-        s.scheme = "https"
-        s.client_name = "admin"
-        s.key_file = "/path/to/keyfile.pem"
+      configfile = File.join(__FILE__,"..","..","config","spice.properties")
+      if File.exists? configfile
+        config = YAML.load_file(configfile)
+        uri = URI.parse(config[:uri])
+        Spice.setup do |s|
+          s.host = uri.host
+          s.port = uri.port
+          s.scheme = uri.scheme
+          s.client_name = config[:client_name]
+          s.key_file = config[:keyfile]
+        end
+        Spice.connect!
       end
-      Spice.connect!
     end
   end
 
