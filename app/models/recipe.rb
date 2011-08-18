@@ -1,2 +1,2 @@
-class Recipe < ActiveRecord::Base
+class Recipe < ChefAPI
 end

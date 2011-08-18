@@ -1,2 +1,2 @@
-class Environment < ActiveRecord::Base
+class Environment < ChefAPI
 end
