@@ -24,12 +24,14 @@ class ChefAPI
     JSON.parse(@connection.get(*args))
   end
     
-  def self.find(conditions = {})
+  def self.find(*arguments)
+    scope   = arguments.slice!(0)
+    options = arguments.slice!(0) || {}
+
     path = '/' + self.name.to_s.downcase.pluralize
-    if conditions[:name] 
-      path = path + "/#{conditions[:name]}"
+    if options[:name] 
+      path = path + "/#{options[:name]}"
     end
-    p self.methods
     self.get(path)
   end
 
